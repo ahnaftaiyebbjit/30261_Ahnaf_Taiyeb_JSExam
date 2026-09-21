@@ -1,0 +1,4 @@
+e)
+array.filter(Boolean) removes all the value that returns false for the expression
+rawAppointments.forEach(apt => console.log(apt.patient.contact.phone));
+rawAppointments.filter(apt => apt.fee > 800);

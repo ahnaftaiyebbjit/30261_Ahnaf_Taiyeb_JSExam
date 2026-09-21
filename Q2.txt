@@ -1,0 +1,28 @@
+a)
+Dr. Karim Uddin @ undefined
+Dr. Nusrat Jahan @ undefined
+d:\JSExam\tempCodeRunnerFile.js:6
+this.doctors.forEach(function (doc) {
+             ^
+
+TypeError: Cannot read properties of undefined (reading 'forEach')
+
+appointmentId behaved differently from patient.address.city . because appointmentId wasn't deep nested inside the object. 
+{ ...appointmentSnapshot } would not have behaved any differently from Object.assign
+
+b)
+function cloneAppointment(appointment){
+    return structuredClone(appointment)
+}
+
+c)?
+
+d)
+[ 10, 11, 8, 9 ]
+when sort method is called without the sort function logic it takes the input as a string as sort it as a string so 10<11<8
+clinicConfig = { maxPerSlot: 6 };
+Assignment to constant variable error. I cannot reassign a value to a constant variable. I can change the value of an object or array because I have saved as a reference but I cannot fully reassigned it.
+
+
+
+

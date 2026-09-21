@@ -1,0 +1,8 @@
+const getAppointmentIds = (appointments) => {
+appointments.map(apt =>  apt.id );
+};
+
+# in function after giving curly braces { } we need explicit return
+
+const getAppointmentCards = (appointments) => appointments.map(apt => { id: apt.id; fee: 0 });
+# we need to fix the syntax with ; . as it is an object

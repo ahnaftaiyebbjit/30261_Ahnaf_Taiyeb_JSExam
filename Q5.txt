@@ -1,0 +1,7 @@
+findAppointmentById(appointment, id) — the appointment object, or null
+rawAppointments.find((appointment, id)=> appointments.id === id);
+rawAppointments.some((appointment)=> apt.status == "CANCELLED")
+rawAppointments.every((appointment)=> apt.tests.size() > 0)
+
+
+

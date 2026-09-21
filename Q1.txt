@@ -1,0 +1,36 @@
+a) Output ->
+
+function
+undefined
+undefined
+d:\JSExam\tempCodeRunnerFile.js:4
+console.log(typeof consultFee);
+        ^
+
+ReferenceError: Cannot access 'consultFee' before initialization
+
+Error name - ReferenceError
+the line it throws on - console.log(typeof consultFee);
+
+
+formatSlot is a function it is hoisted before the execution so we can see the typeOf function
+buildInvoice is a variable which holds a function thats why it shows undefined
+consultFee is a const variable thats why it shows cannot access;
+
+b)
+this.doctors.forEach(function (doc) {})
+
+this is not available outside a class. so the solution would be remove the .this keyword
+
+printRoster: function () {
+    doctors.forEach(function (doc) {
+        console.log(`${doc} @ ${this.clinic}`);
+})
+
+c)
+printRoster: () => this.doctors.forEach(doc => console.log(doc)
+this "modernised" is worst because arrow function does not create this like normal function. 
+it does not point to the class it was called with anymore
+
+
+

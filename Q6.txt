@@ -1,0 +1,59 @@
+a) output ->
+1: sync
+2: async body
+6: sync end
+3: after await
+5: then
+4: timeout 0
+
+explain the role of the Call Stack, the Web APIs, the Callback (macrotask) Queue, the Microtask Queue
+and the Event Loop in producing that exact order
+
+call stack in the js is that stack that holds the function reference to execute each function one after another syncly,
+Web APIs supports js to do all the async work as well as all the built in functions like settimeout etc. runs on webapi
+Callback has two queue one micro another macro. (macrotask) Queue hold the least priority tasks or small tasks whereas Micro hold the more priority tasks such as fetch is a micro task and setTimeout is a macrotask
+
+Event Loop sits between queue and call stack to push task from queue to call stack 
+
+c)
+async function loadAll(ids) {
+    const appointments = [];
+    for (const id of ids) {
+        appointments.push(await  Promise.all(fetchAppointment(id))); 
+    }
+    return appointments;
+}
+
+d)
+browser is not frozen. sync coding is running while async is is running on the web api.
+promise.all() runs all together and roll back if one errors
+and promise.settled runs all the request and gives and array with all the error logs for the error request
+
+i would use promise.settled
+then re run the error ones maybe
+
+b)
+Explain precisely what the second .then receives and why. Fix it twice: once keeping the .then chain, once with
+async/await .
+2nd .then receives the appointment object fetchAppointment(id) return the appointment and pass it to the next .then
+
+function loadAppointmentPage(aptId) {
+fetchAppointment(aptId)
+.then(apt => {
+fetchDoctor(apt.doctorId);
+})
+.then(doctor => {
+console.log("Doctor:", doctor.name);
+})
+.catch(err => console.log("Failed:", err.message));
+}
+
+async function loadAppointmentPage(aptId) {
+    
+    try{
+        const appts = await fetchAppointment(aptId);
+        const doc = await fetchDoctor(apt.doctorId);
+        console.log(doc.name)
+    } catch(err) 
+        { console.log("Failed:", err.message);}
+}
